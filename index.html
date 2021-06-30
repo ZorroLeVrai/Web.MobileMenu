@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- font awsome show a hamburger menu (bars) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <div id="navigation-address">
+        <a
+          id="home-topnav"
+          href="#home"
+          class="active"
+          onclick="setContent(event, 'Home', 'This is the homepage')"
+          >Home</a
+        >
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a
+          href="javascript:void(0);"
+          class="icon"
+          onclick="handleAction('home')"
+        >
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <!-- Navigation links (hidden by default) -->
+      <div id="home-links" class="sub-link">
+        <a
+          href="javascript:void(0);"
+          onclick="setContent(event, 'Football', 'All about football')"
+          >Football</a
+        >
+        <a
+          href="javascript:void(0);"
+          onclick="setContent(event, 'Tennis', 'All about tennis')"
+          >Tennis</a
+        >
+        <a
+          href="javascript:void(0);"
+          onclick="setContent(event, 'About', 'All about the author')"
+          >About</a
+        >
+      </div>
+    </div>
+
+    <div id="main-content"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
