@@ -17,44 +17,22 @@
     <!-- Top Navigation Menu -->
     <div class="topnav">
       <div id="navigation-address">
-        <a
-          id="home-topnav"
-          href="#home"
-          class="active"
-          onclick="setContent(event, 'Home', 'This is the homepage')"
-          >Home</a
-        >
+        <a id="home-topnav" href="#home" class="active">Home</a>
         <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-        <a
-          href="javascript:void(0);"
-          class="icon"
-          onclick="handleAction('home')"
-        >
+        <a id="home-icon" href="javascript:void(0);" class="icon">
           <i class="fa fa-bars"></i>
         </a>
       </div>
       <!-- Navigation links (hidden by default) -->
       <div id="home-links" class="sub-link">
-        <a
-          href="javascript:void(0);"
-          onclick="setContent(event, 'Football', 'All about football')"
-          >Football</a
-        >
-        <a
-          href="javascript:void(0);"
-          onclick="setContent(event, 'Tennis', 'All about tennis')"
-          >Tennis</a
-        >
-        <a
-          href="javascript:void(0);"
-          onclick="setContent(event, 'About', 'All about the author')"
-          >About</a
-        >
+        <a href="javascript:void(0);" id="football-selector">Football</a>
+        <a href="javascript:void(0);" id="tennis-selector">Tennis</a>
+        <a href="javascript:void(0);" id="about-selector">About</a>
       </div>
     </div>
 
     <div id="main-content"></div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>

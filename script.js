@@ -1,10 +1,32 @@
+import Content from './content.js';
+
 const mainContentElement = document.getElementById("main-content");
 const homeTopNavElement = document.getElementById("home-topnav");
+const homeIconElement = document.getElementById("home-icon");
+const footballSelectorElement = document.getElementById("football-selector");
+const tennisSelectorElement = document.getElementById("tennis-selector");
+const aboutSelectorElement = document.getElementById("about-selector");
+
+const mapContent = new Map([
+  ["home-topnav", new Content("Home", "This is the homepage")],
+  ["football-selector", new Content("Football", "All about football")],
+  ["tennis-selector", new Content("Tennis", "All about tennis")],
+  ["about-selector", new Content("About", "All about the author")]
+]);
 
 let currentSubLink = null;
 let currentSelectedElement = homeTopNavElement;
 
-/* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+function initListeners()
+{
+  homeTopNavElement.addEventListener("click", (e) => handleMenuClick(e));
+  homeIconElement.addEventListener("click", () => handleAction("home"));
+  footballSelectorElement.addEventListener("click", (e) => handleMenuClick(e));
+  tennisSelectorElement.addEventListener("click", (e) => handleMenuClick(e));
+  aboutSelectorElement.addEventListener("click", (e) => handleMenuClick(e));
+}
+
+// Show or hide the navigation menu links
 function handleAction(menuName)
 {
   if (menuName === currentSubLink)
@@ -23,7 +45,6 @@ function handleAction(menuName)
     //display the appropriate submenu
     document.getElementById(`${currentSubLink}-links`).style.display = "block";
   }
-    
 }
 
 function hideAllSubLinks()
@@ -34,8 +55,10 @@ function hideAllSubLinks()
   }
 }
 
-function setContent(evt, title, text)
+function handleMenuClick(evt)
 {
+  const targetId = evt.target.id;
+
   if (currentSelectedElement)
   {
     //remove the previous active element
@@ -44,5 +67,14 @@ function setContent(evt, title, text)
   }
 
   evt.target.classList.add("active");
-  mainContentElement.innerHTML = `<h1>${title}</h1><p>${text}</p>`;
+  displayContent(targetId);
 }
+
+function displayContent(targetId)
+{
+  const content = mapContent.get(targetId);
+  mainContentElement.innerHTML = `<h1>${content.title}</h1><p>${content.text}</p>`;
+}
+
+initListeners();
+displayContent("home-topnav");
